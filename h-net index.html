@@ -6,6 +6,7 @@
 <title>H-NET</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -14,7 +15,7 @@ body {
   margin: 0;
   background: #070707;
   color: #bbb;
-  font-family: monospace;
+  font-family: "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
 }
 
 header {
@@ -77,13 +78,18 @@ label {
 }
 
 input,
+textarea,
+button {
+  font-family: "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+input,
 textarea {
   width: 100%;
   background: #0d0d0d;
   border: 1px solid #444;
   color: #ddd;
   padding: 12px;
-  font-family: monospace;
 }
 
 textarea {
@@ -97,13 +103,22 @@ button {
   border: 1px solid #555;
   color: #bbb;
   padding: 12px 25px;
-  font-family: monospace;
   cursor: pointer;
 }
 
 button:hover {
   background: #222;
   color: white;
+}
+
+#message {
+  margin-top: 25px;
+  color: #777;
+  line-height: 2;
+}
+
+.error {
+  color: #8b0000;
 }
 
 .warning {
@@ -120,6 +135,7 @@ footer {
   color: #444;
   font-size: 11px;
 }
+
 </style>
 </head>
 
@@ -127,60 +143,63 @@ footer {
 
 <header>
 
-<div class="logo">
-H-NET
-</div>
+  <div class="logo">
+    H-NET
+  </div>
 
-<a class="login" href="login.html">
-LOGIN
-</a>
+  <a class="login" href="h-net login.html">
+    LOGIN
+  </a>
 
 </header>
 
 <div class="container">
 
-<h1>CONTRACT NETWORK</h1>
+  <h1>依頼ネットワーク</h1>
 
-<div class="subtitle">
-PRIVATE REQUEST SERVICE
-</div>
+  <div class="subtitle">
+    非公開依頼サービス
+  </div>
 
-<div class="panel">
+  <div class="panel">
 
-<h2>NEW REQUEST</h2>
+    <h2>新規依頼</h2>
 
-<label>REQUEST TYPE</label>
-<input type="text">
+    <label>依頼者名</label>
+    <input type="text">
 
-<label>TARGET</label>
-<input type="text">
+    <label>依頼内容</label>
+    <input type="text">
 
-<label>DETAILS</label>
-<textarea></textarea>
+    <label>対象</label>
+    <input type="text">
 
-<label>CONTACT</label>
-<input type="text">
+    <label>詳細</label>
+    <textarea></textarea>
 
-<button onclick="sendRequest()">
-SUBMIT REQUEST
-</button>
+    <label>連絡先</label>
+    <input type="text">
 
-<div id="message"></div>
+    <button onclick="sendRequest()">
+      依頼を送信
+    </button>
 
-</div>
+    <div id="message"></div>
 
-<div class="warning">
+  </div>
 
-THIS SERVICE IS NOT INTENDED FOR PUBLIC USE.<br>
-ALL REQUESTS ARE REVIEWED BEFORE ACCEPTANCE.<br>
-DO NOT SUBMIT FALSE INFORMATION.
+  <div class="warning">
 
-</div>
+    このサービスは一般公開を目的としていません。<br>
+    すべての依頼は受理前に審査されます。<br>
+    虚偽の情報を送信しないでください。
 
-<footer>
-H-NET / CONTRACT NETWORK<br>
-PRIVATE SYSTEM / ARCHIVED INFRASTRUCTURE
-</footer>
+  </div>
+
+  <footer>
+    H-NET / 依頼ネットワーク<br>
+    非公開システム / アーカイブ済みインフラ
+  </footer>
 
 </div>
 
@@ -189,9 +208,16 @@ PRIVATE SYSTEM / ARCHIVED INFRASTRUCTURE
 function sendRequest() {
 
   document.getElementById("message").innerHTML = `
+    <div class="error">
+      ERROR : CONNECTION FAILED
+    </div>
+
     <br>
-    REQUEST RECEIVED.<br>
-    REFERENCE ID：#${Math.floor(Math.random() * 9000 + 1000)}
+
+    接続先が応答しません。<br>
+    この端末からの依頼は受け付けられません。<br><br>
+
+    CONNECTION : DISCONNECTED
   `;
 
 }
