@@ -7,7 +7,10 @@
 <title>花咲く場所で希望を育てて</title>
 
 <style>
-*{box-sizing:border-box;}
+
+*{
+    box-sizing:border-box;
+}
 
 html,body{
     margin:0;
@@ -27,7 +30,11 @@ a{
     color:inherit;
 }
 
-/* ヘッダー */
+
+/* =========================
+   HEADER
+========================= */
+
 header{
     height:70px;
     display:flex;
@@ -55,7 +62,11 @@ nav a:hover{
     color:#222;
 }
 
-/* メインビジュアル */
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
     min-height:75vh;
     display:flex;
@@ -80,7 +91,11 @@ nav a:hover{
     margin:0;
 }
 
-/* あらすじ */
+
+/* =========================
+   STORY
+========================= */
+
 .story{
     padding:120px 20px 140px;
     text-align:center;
@@ -88,7 +103,7 @@ nav a:hover{
 }
 
 .story-inner{
-    max-width:850px;
+    max-width:900px;
     margin:0 auto;
 }
 
@@ -99,155 +114,1520 @@ nav a:hover{
     margin:0 0 50px;
 }
 
-.story p{
+.story-box{
+    background:#fff;
+    border:1px solid #ddd;
+    padding:55px 65px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,0.03);
+}
+
+.story-box p{
     font-size:14px;
     line-height:2.5;
     color:#555;
-    text-align:left;
+    margin:0;
 }
 
-/* フッター */
-footer{
+
+/* =========================
+   CHARACTERS
+========================= */
+
+.characters{
+    padding:120px 20px 140px;
+    border-top:1px solid #e3e2dd;
+}
+
+.characters-inner{
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.characters h2{
     text-align:center;
-    padding:30px;
-    color:#999;
-    font-size:11px;
-    border-top:1px solid #ddd;
+    font-size:28px;
+    font-weight:normal;
+    letter-spacing:0.15em;
+    margin:0 0 60px;
 }
 
-/* タブレット・スマホ */
+
+/* キャラクタースライダー */
+
+.character-slider{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+}
+
+
+/* =========================
+   CHARACTER CARD
+========================= */
+
+.character-card{
+    width:850px;
+    min-height:480px;
+    background:#fff;
+    border:1px solid #ddd;
+    padding:50px 60px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:70px;
+
+    box-shadow:0 3px 12px rgba(0,0,0,0.03);
+
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+
+/* =========================
+   CHARACTER IMAGE
+========================= */
+
+.character-image-area{
+    flex:0 0 300px;
+    height:380px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.saki-image-wrap{
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.normal-character-image{
+    width:auto;
+    height:380px;
+    max-width:300px;
+
+    object-fit:contain;
+
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-touch-callout:none;
+
+    transition:opacity .2s ease;
+}
+
+
+/* =========================
+   CHARACTER INFO
+========================= */
+
+.character-info{
+    flex:1;
+
+    transition:
+        opacity .3s ease,
+        color .35s ease;
+}
+
+.character-info.hornet-mode{
+    animation:hornetAppear .5s ease;
+}
+
+@keyframes hornetAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.character-info h3{
+    font-size:28px;
+    font-weight:400;
+    letter-spacing:0.1em;
+
+    margin:0 0 6px;
+
+    transition:color .35s ease;
+}
+
+.character-en{
+    color:#999;
+
+    font-size:10px;
+    letter-spacing:0.18em;
+
+    margin-bottom:28px;
+
+    transition:color .35s ease;
+}
+
+.character-info p{
+    font-size:13px;
+    line-height:2;
+
+    color:#666;
+
+    margin:5px 0;
+
+    transition:color .35s ease;
+}
+
+.character-description{
+    margin-top:22px !important;
+}
+
+.pink-character{
+    color:#e91e63;
+}
+
+
+/* =========================
+   HORNET MODE
+========================= */
+
+.character-card.hornet-mode{
+
+    background:#111;
+
+    border-color:#111;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.18);
+}
+
+
+/* HORNETを赤色に */
+
+.character-card.hornet-mode .character-info h3{
+
+    color:#b00000;
+
+}
+
+
+/* 英字 */
+
+.character-card.hornet-mode .character-en{
+
+    color:#888;
+
+}
+
+
+/* プロフィール */
+
+.character-card.hornet-mode .character-info p{
+
+    color:#ccc;
+
+}
+
+
+/* 説明文 */
+
+.character-card.hornet-mode .character-description{
+
+    color:#aaa;
+
+}
+
+
+/* =========================
+   裏社会ボタン
+========================= */
+
+.underworld-button{
+
+    display:none;
+
+    margin-top:28px;
+
+    padding:12px 28px;
+
+    border:1px solid #777;
+
+    color:#ccc;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    letter-spacing:0.15em;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease;
+}
+
+
+/* HORNET時だけ表示 */
+
+.character-card.hornet-mode .underworld-button{
+
+    display:inline-block;
+
+}
+
+
+/* ホバー */
+
+.underworld-button:hover{
+
+    background:#b00000;
+
+    border-color:#b00000;
+
+    color:#fff;
+
+}
+
+
+/* =========================
+   ARROW
+========================= */
+
+.character-arrow{
+
+    width:45px;
+    height:80px;
+
+    border:none;
+    background:transparent;
+
+    color:#999;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+.character-arrow:hover{
+
+    color:#444;
+
+}
+
+.character-arrow.left:hover{
+
+    transform:translateX(-4px);
+
+}
+
+.character-arrow.right:hover{
+
+    transform:translateX(4px);
+
+}
+
+
+/* =========================
+   DOTS
+========================= */
+
+.character-dots{
+
+    margin-top:35px;
+
+    text-align:center;
+
+    color:#aaa;
+
+    font-size:10px;
+
+    letter-spacing:8px;
+}
+
+.character-dots span{
+
+    transition:color .2s;
+
+}
+
+.character-dots .active{
+
+    color:#555;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#999;
+
+    font-size:11px;
+
+    border-top:1px solid #ddd;
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+    .character-slider{
+
+        gap:10px;
+
+    }
+
+    .character-card{
+
+        width:calc(100% - 90px);
+
+        gap:35px;
+
+        padding:40px;
+
+    }
+
+    .character-image-area{
+
+        flex:0 0 240px;
+
+        height:330px;
+
+    }
+
+    .normal-character-image{
+
+        height:330px;
+
+        max-width:240px;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:768px){
 
     header{
+
         padding:0 20px;
+
     }
 
     .logo{
+
         font-size:14px;
+
         letter-spacing:0.1em;
+
     }
 
     nav a{
+
         margin-left:10px;
+
         font-size:11px;
+
     }
 
     .hero{
+
         min-height:calc(100vh - 70px);
+
         padding:40px 20px;
+
     }
 
     .hero h1{
+
         font-size:28px;
+
         letter-spacing:4px;
+
     }
 
     .hero p{
+
         font-size:13px;
+
     }
 
     .story{
-        padding:90px 25px 110px;
+
+        padding:90px 20px 110px;
+
     }
 
     .story h2{
+
         font-size:24px;
+
         margin-bottom:40px;
+
     }
 
-    .story p{
-        font-size:13px;
-        line-height:2.3;
+    .story-box{
+
+        padding:35px 25px;
+
     }
+
+    .story-box p{
+
+        font-size:13px;
+
+        line-height:2.3;
+
+    }
+
+    .characters{
+
+        padding:90px 15px 110px;
+
+    }
+
+    .characters h2{
+
+        font-size:24px;
+
+        margin-bottom:40px;
+
+    }
+
+    .character-slider{
+
+        gap:0;
+
+    }
+
+    .character-card{
+
+        width:calc(100% - 70px);
+
+        min-height:auto;
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:40px 20px 45px;
+
+        gap:25px;
+
+    }
+
+    .character-image-area{
+
+        flex:0 0 auto;
+
+        width:100%;
+
+        height:300px;
+
+    }
+
+    .normal-character-image{
+
+        height:300px;
+
+        max-width:80vw;
+
+    }
+
+    .character-info{
+
+        width:100%;
+
+    }
+
+    .character-info h3{
+
+        font-size:24px;
+
+    }
+
+    .character-en{
+
+        margin-bottom:22px;
+
+    }
+
+    .character-info p{
+
+        font-size:12px;
+
+    }
+
+    .character-arrow{
+
+        width:35px;
+
+        font-size:20px;
+
+    }
+
+    .character-dots{
+
+        margin-top:28px;
+
+    }
+
 }
 
-/* 小さいスマホ */
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
 @media(max-width:500px){
 
     header{
+
         height:auto;
+
         min-height:70px;
+
         flex-direction:column;
+
         justify-content:center;
+
         gap:10px;
+
         padding:15px 10px;
+
     }
 
     nav a{
+
         margin:0 6px;
+
     }
 
     .hero{
+
         min-height:calc(100vh - 100px);
+
     }
+
+    .story-box{
+
+        padding:30px 20px;
+
+    }
+
+    .character-card{
+
+        width:calc(100% - 55px);
+
+        padding:35px 15px 40px;
+
+    }
+
+    .character-image-area{
+
+        height:270px;
+
+    }
+
+    .normal-character-image{
+
+        height:270px;
+
+    }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div id="normalSite">
 
-    <!-- ヘッダー -->
-    <header>
-        <div class="logo">
-            花咲く場所で希望を育てて
-        </div>
 
-        <nav>
-            <a href="#">あらすじ</a>
-            <a href="#">キャラクター</a>
-            <a href="#">ニュース</a>
-            <a href="seach.html">検索</a>
-        </nav>
-    </header>
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        花咲く場所で希望を育てて
+    </div>
+
+    <nav>
+
+        <a href="#story">
+            あらすじ
+        </a>
+
+        <a href="#characters">
+            キャラクター
+        </a>
+
+        <a href="#">
+            ニュース
+        </a>
+
+        <a href="seach.html">
+            検索
+        </a>
+
+    </nav>
+
+</header>
 
 
-    <!-- メインビジュアル -->
-    <section class="hero">
-        <div>
 
-            <h1>
-                花咲く場所で<br>
-                希望を育てて
-            </h1>
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div>
+
+        <h1>
+            花咲く場所で<br>
+            希望を育てて
+        </h1>
+
+        <p>
+            傷ついた少女と、<br>
+            彼女に手を差し伸べた少女の物語。
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     STORY
+========================= -->
+
+<section id="story" class="story">
+
+    <div class="story-inner">
+
+        <h2>
+            あらすじ
+        </h2>
+
+        <div class="story-box">
 
             <p>
-                傷ついた少女と、<br>
-                彼女に手を差し伸べた少女の物語。
-            </p>
 
-        </div>
-    </section>
-
-
-    <!-- あらすじ -->
-    <section class="story">
-
-        <div class="story-inner">
-
-            <h2>あらすじ</h2>
-
-            <p>
                 孤独と後悔を抱えながら生きる茅野咲希(かやのさき)。<br>
-                彼女の前に現れたのは、太陽のように明るい栗栖川妃梨(くりすがわひな)だった。<br>
-                過去に囚われ続ける咲希を、妃梨はそばで支えようと決意する。<br>
-                彼女の存在は咲希にとって初めての安らぎとなり、少しずつ心を開いていく。<br><br>
 
-                これは、過去に傷ついた少女が、希望を見つける物語。
+                彼女の前に現れたのは、
+                太陽のように明るい栗栖川妃梨(くりすがわひな)だった。<br>
+
+                過去に囚われ続ける咲希を、
+                妃梨はそばで支えようと決意する。<br>
+
+                彼女の存在は咲希にとって初めての安らぎとなり、
+                少しずつ心を開いていく。<br><br>
+
+                これは、過去に傷ついた少女が、
+                希望を見つける物語。
+
             </p>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- フッター -->
-    <footer>
-        © 花咲く場所で希望を育てて
-    </footer>
+
+<!-- =========================
+     CHARACTERS
+========================= -->
+
+<section id="characters" class="characters">
+
+    <div class="characters-inner">
+
+        <h2>
+            CHARACTER
+        </h2>
+
+
+        <div class="character-slider">
+
+
+            <!-- 左ボタン -->
+
+            <button
+                class="character-arrow left"
+                onclick="changeCharacter(-1)"
+                aria-label="前のキャラクター">
+
+                ◀
+
+            </button>
+
+
+
+            <!-- キャラクターカード -->
+
+            <div id="characterCard" class="character-card">
+
+
+                <!-- 画像 -->
+
+                <div class="character-image-area">
+
+                    <div class="saki-image-wrap">
+
+                        <img
+                            id="characterImage"
+                            src="saki.png"
+                            alt="茅野 咲希"
+                            class="normal-character-image"
+                            draggable="false"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- プロフィール -->
+
+                <div class="character-info">
+
+
+                    <h3 id="characterName">
+                        茅野 咲希
+                    </h3>
+
+
+                    <div
+                        id="characterEn"
+                        class="character-en">
+
+                        SAKI KAYANO
+
+                    </div>
+
+
+                    <p id="characterJob">
+                        大学1年生
+                    </p>
+
+
+                    <p id="characterBirthday">
+                        誕生日：5月4日
+                    </p>
+
+
+                    <p id="characterHeight">
+                        身長：158㎝
+                    </p>
+
+
+                    <p
+                        id="characterDescription"
+                        class="character-description">
+
+                        クールで冷静。
+                        どこか近寄りがたい空気を纏い、
+                        必要以上に他人と関わろうとはしない。
+
+                    </p>
+
+
+                    <p id="characterLikes">
+
+                        好きなもの：甘いもの、猫、妃梨
+
+                    </p>
+
+
+
+                    <!-- HORNET時だけ表示 -->
+
+                    <a
+                        id="underworldButton"
+                        class="underworld-button"
+                        href="h-net index.html">
+
+                        依頼する
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 右ボタン -->
+
+            <button
+                class="character-arrow right"
+                onclick="changeCharacter(1)"
+                aria-label="次のキャラクター">
+
+                ▶
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ドット -->
+
+        <div class="character-dots">
+
+            <span id="dot0" class="active">
+                ●
+            </span>
+
+            <span id="dot1">
+                ○
+            </span>
+
+            <span id="dot2">
+                ○
+            </span>
+
+            <span id="dot3">
+                ○
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 花咲く場所で希望を育てて
+
+</footer>
+
 
 </div>
+
+
+
+<script>
+
+/* =========================
+   キャラクターデータ
+========================= */
+
+const characters = [
+
+    {
+        image:"saki.png",
+        name:"茅野 咲希",
+        en:"SAKI KAYANO",
+        job:"大学1年生",
+        birthday:"誕生日：5月4日",
+        height:"身長：158㎝",
+
+        description:
+        "クールで冷静。どこか近寄りがたい空気を纏い、必要以上に他人と関わろうとはしない。",
+
+        likes:
+        "好きなもの：甘いもの、猫、妃梨",
+
+        pink:false
+    },
+
+
+    {
+        image:"hiri.png",
+        name:"栗栖川 妃梨",
+        en:"HINA KURISUGAWA",
+        job:"大学1年生",
+        birthday:"誕生日：7月24日",
+        height:"身長：156㎝",
+
+        description:
+        "明るく人懐っこい性格。自然と人の輪の中心にいるタイプで、少しおっちょこちょいなところもあるが、芯は強い。",
+
+        likes:
+        "好きなもの：咲希、カフェ、ファッション",
+
+        pink:true
+    },
+
+
+    {
+        image:"hiri.png",
+        name:"イツキネコ",
+        en:"ITSUKINEKO",
+        job:"植物の精霊",
+        birthday:"",
+        height:"",
+
+        description:
+        "命芽持ちの頭に直接語りかけるように話す。一般の人からは猫の鳴き声に聞こえる。",
+
+        likes:"",
+
+        pink:false
+    },
+
+
+    {
+        image:"hiri.png",
+        name:"桜井 麻耶",
+        en:"MAYA SAKURAI",
+        job:"花屋の店長",
+        birthday:"誕生日：9月15日",
+        height:"身長：168cm",
+
+        description:
+        "おっとり、ちょっと天然。人懐っこく感情豊かな大型犬系。",
+
+        likes:
+        "好きなもの：植物、猫、ブラウン",
+
+        pink:true
+    }
+
+];
+
+
+let currentCharacter = 0;
+
+let hornetMode = false;
+
+
+
+/* =========================
+   キャラクター切り替え
+========================= */
+
+function changeCharacter(direction){
+
+    currentCharacter += direction;
+
+
+    if(currentCharacter >= characters.length){
+
+        currentCharacter = 0;
+
+    }
+
+
+    if(currentCharacter < 0){
+
+        currentCharacter = characters.length - 1;
+
+    }
+
+
+    /* HORNET解除 */
+
+    hornetMode = false;
+
+    document
+        .getElementById("characterCard")
+        .classList
+        .remove("hornet-mode");
+
+
+    document
+        .querySelector(".character-info")
+        .classList
+        .remove("hornet-mode");
+
+
+
+    const character =
+        characters[currentCharacter];
+
+
+    const image =
+        document.getElementById("characterImage");
+
+
+    image.style.opacity = "0";
+
+
+    setTimeout(function(){
+
+        image.src = character.image;
+
+        image.alt = character.name;
+
+        image.style.opacity = "1";
+
+    },120);
+
+
+
+    /* 名前 */
+
+    const name =
+        document.getElementById("characterName");
+
+    name.textContent =
+        character.name;
+
+
+    name.classList.toggle(
+        "pink-character",
+        character.pink
+    );
+
+
+
+    /* 英語名 */
+
+    document
+        .getElementById("characterEn")
+        .textContent =
+        character.en;
+
+
+
+    /* 職業 */
+
+    document
+        .getElementById("characterJob")
+        .textContent =
+        character.job;
+
+
+
+    /* 誕生日 */
+
+    const birthday =
+        document.getElementById(
+            "characterBirthday"
+        );
+
+    birthday.textContent =
+        character.birthday;
+
+    birthday.style.display =
+        character.birthday
+        ? "block"
+        : "none";
+
+
+
+    /* 身長 */
+
+    const height =
+        document.getElementById(
+            "characterHeight"
+        );
+
+    height.textContent =
+        character.height;
+
+    height.style.display =
+        character.height
+        ? "block"
+        : "none";
+
+
+
+    /* 説明 */
+
+    document
+        .getElementById(
+            "characterDescription"
+        )
+        .textContent =
+        character.description;
+
+
+
+    /* 好きなもの */
+
+    const likes =
+        document.getElementById(
+            "characterLikes"
+        );
+
+    likes.textContent =
+        character.likes;
+
+    likes.style.display =
+        character.likes
+        ? "block"
+        : "none";
+
+
+
+    /* ドット */
+
+    for(
+        let i = 0;
+        i < characters.length;
+        i++
+    ){
+
+        const dot =
+            document.getElementById(
+                "dot" + i
+            );
+
+
+        if(i === currentCharacter){
+
+            dot.textContent = "●";
+
+            dot.classList.add(
+                "active"
+            );
+
+        }else{
+
+            dot.textContent = "○";
+
+            dot.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+
+}
+
+
+
+/* =========================
+   長押し処理
+========================= */
+
+const characterImage =
+    document.getElementById(
+        "characterImage"
+    );
+
+
+let longpressTimer = null;
+
+let isLongPressing = false;
+
+
+
+/* 長押し開始 */
+
+function startSakiLongPress(){
+
+    /* 咲希以外では発動しない */
+
+    if(currentCharacter !== 0){
+
+        return;
+
+    }
+
+
+    /* すでにHORNETなら発動しない */
+
+    if(hornetMode){
+
+        return;
+
+    }
+
+
+    isLongPressing = true;
+
+
+    /*
+       画面上には何も表示しない
+    */
+
+
+    longpressTimer =
+        setTimeout(function(){
+
+            if(isLongPressing){
+
+                showHornetProfile();
+
+            }
+
+        },3000);
+
+}
+
+
+
+/* 長押しキャンセル */
+
+function cancelSakiLongPress(){
+
+    isLongPressing = false;
+
+
+    clearTimeout(
+        longpressTimer
+    );
+
+
+    longpressTimer = null;
+
+}
+
+
+
+/* =========================
+   HORNETプロフィール
+========================= */
+
+function showHornetProfile(){
+
+    if(currentCharacter !== 0){
+
+        return;
+
+    }
+
+
+    hornetMode = true;
+
+
+
+    /* カードを黒にする */
+
+    const card =
+        document.getElementById(
+            "characterCard"
+        );
+
+    card.classList.add(
+        "hornet-mode"
+    );
+
+
+
+    /* プロフィール演出 */
+
+    const info =
+        document.querySelector(
+            ".character-info"
+        );
+
+    info.classList.add(
+        "hornet-mode"
+    );
+
+
+
+    /* 名前 */
+
+    const name =
+        document.getElementById(
+            "characterName"
+        );
+
+    name.textContent =
+        "HORNET";
+
+    name.classList.remove(
+        "pink-character"
+    );
+
+
+
+    /* 英語 */
+
+    document
+        .getElementById(
+            "characterEn"
+        )
+        .textContent =
+        "CODE NAME : HORNET";
+
+
+
+    /* 職業 */
+
+    document
+        .getElementById(
+            "characterJob"
+        )
+        .textContent =
+        "殺し屋";
+
+
+
+    /* 識別番号 */
+
+    const birthday =
+        document.getElementById(
+            "characterBirthday"
+        );
+
+    birthday.textContent =
+        "識別番号：H-01";
+
+    birthday.style.display =
+        "block";
+
+
+
+    /* 身長を隠す */
+
+    document
+        .getElementById(
+            "characterHeight"
+        )
+        .style
+        .display =
+        "none";
+
+
+
+    /* 説明 */
+
+    document
+        .getElementById(
+            "characterDescription"
+        )
+        .textContent =
+        "感情を表に出すことは少なく、任務を淡々と遂行する。";
+
+
+
+    /* 武器 */
+
+    const likes =
+        document.getElementById(
+            "characterLikes"
+        );
+
+    likes.textContent =
+        "武器：刃物";
+
+    likes.style.display =
+        "block";
+
+}
+
+
+
+/* =========================
+   マウス操作
+========================= */
+
+characterImage.addEventListener(
+    "mousedown",
+    function(){
+
+        startSakiLongPress();
+
+    }
+);
+
+
+characterImage.addEventListener(
+    "mouseup",
+    function(){
+
+        cancelSakiLongPress();
+
+    }
+);
+
+
+characterImage.addEventListener(
+    "mouseleave",
+    function(){
+
+        cancelSakiLongPress();
+
+    }
+);
+
+
+
+/* =========================
+   スマホ・タッチ操作
+========================= */
+
+characterImage.addEventListener(
+    "touchstart",
+    function(e){
+
+        e.preventDefault();
+
+        startSakiLongPress();
+
+    },
+    {
+        passive:false
+    }
+);
+
+
+characterImage.addEventListener(
+    "touchend",
+    function(){
+
+        cancelSakiLongPress();
+
+    }
+);
+
+
+characterImage.addEventListener(
+    "touchcancel",
+    function(){
+
+        cancelSakiLongPress();
+
+    }
+);
+
+</script>
 
 </body>
 </html>
