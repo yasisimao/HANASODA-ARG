@@ -7,17 +7,9 @@
 <title>花咲く場所で希望を育てて</title>
 
 <style>
+*{box-sizing:border-box;}
 
-/* =========================
-   共通
-========================= */
-
-*{
-    box-sizing:border-box;
-}
-
-html,
-body{
+html,body{
     margin:0;
     padding:0;
     width:100%;
@@ -25,12 +17,7 @@ body{
 }
 
 body{
-    font-family:
-        "Times New Roman",
-        "Yu Mincho",
-        "Hiragino Mincho ProN",
-        serif;
-
+    font-family:"Times New Roman","Yu Mincho","Hiragino Mincho ProN",serif;
     background:#f8f7f2;
     color:#333;
     overflow-x:hidden;
@@ -40,22 +27,14 @@ a{
     color:inherit;
 }
 
-
-/* =========================
-   ヘッダー
-========================= */
-
+/* ヘッダー */
 header{
     height:70px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 7%;
-
     border-bottom:1px solid #ddd;
-
     background:rgba(255,255,255,0.8);
 }
 
@@ -66,12 +45,9 @@ header{
 
 nav a{
     margin-left:25px;
-
     color:#555;
     text-decoration:none;
-
     font-size:13px;
-
     transition:color .2s;
 }
 
@@ -79,68 +55,67 @@ nav a:hover{
     color:#222;
 }
 
-
-/* =========================
-   メインビジュアル
-========================= */
-
+/* メインビジュアル */
 .hero{
     min-height:75vh;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     text-align:center;
-
     padding:60px 20px;
 }
 
 .hero h1{
     font-size:clamp(30px,6vw,58px);
-
     font-weight:normal;
-
     letter-spacing:0.12em;
-
     line-height:1.6;
-
     margin:0 0 25px;
 }
 
 .hero p{
     line-height:2;
-
     color:#777;
-
     font-size:14px;
-
     margin:0;
 }
 
+/* あらすじ */
+.story{
+    padding:120px 20px 140px;
+    text-align:center;
+    border-top:1px solid #e3e2dd;
+}
 
+.story-inner{
+    max-width:850px;
+    margin:0 auto;
+}
 
-/* =========================
-   フッター
-========================= */
+.story h2{
+    font-size:28px;
+    font-weight:normal;
+    letter-spacing:0.15em;
+    margin:0 0 50px;
+}
 
+.story p{
+    font-size:14px;
+    line-height:2.5;
+    color:#555;
+    text-align:left;
+}
+
+/* フッター */
 footer{
     text-align:center;
-
     padding:30px;
-
     color:#999;
-
     font-size:11px;
-
     border-top:1px solid #ddd;
 }
 
-
-/* =========================
-   スマートフォン
-========================= */
-
+/* タブレット・スマホ */
 @media(max-width:768px){
 
     header{
@@ -171,19 +146,30 @@ footer{
         font-size:13px;
     }
 
+    .story{
+        padding:90px 25px 110px;
+    }
+
+    .story h2{
+        font-size:24px;
+        margin-bottom:40px;
+    }
+
+    .story p{
+        font-size:13px;
+        line-height:2.3;
+    }
 }
 
+/* 小さいスマホ */
 @media(max-width:500px){
 
     header{
         height:auto;
         min-height:70px;
-
         flex-direction:column;
         justify-content:center;
-
         gap:10px;
-
         padding:15px 10px;
     }
 
@@ -194,65 +180,33 @@ footer{
     .hero{
         min-height:calc(100vh - 100px);
     }
-
 }
-
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =====================================================
-     通常サイト
-===================================================== -->
 
 <div id="normalSite">
 
-
-    <!-- =========================
-         ヘッダー
-    ========================== -->
-
+    <!-- ヘッダー -->
     <header>
-
         <div class="logo">
             花咲く場所で希望を育てて
         </div>
 
         <nav>
-
-            <a href="#">
-                あらすじ
-            </a>
-
-            <a href="#">
-                キャラクター
-            </a>
-
-            <a href="#">
-                ニュース
-            </a>
-
-            <a href="seach.html">
-                検索
-            </a>
-
+            <a href="#">あらすじ</a>
+            <a href="#">キャラクター</a>
+            <a href="#">ニュース</a>
+            <a href="seach.html">検索</a>
         </nav>
-
     </header>
 
 
-
-    <!-- =========================
-         メイン
-    ========================== -->
-
+    <!-- メインビジュアル -->
     <section class="hero">
-
         <div>
-<br><br><br><br><br>
+
             <h1>
                 花咲く場所で<br>
                 希望を育てて
@@ -262,33 +216,38 @@ footer{
                 傷ついた少女と、<br>
                 彼女に手を差し伸べた少女の物語。
             </p>
-<br><br><br><br><br><br><br><br><br><br><br>
-  <h2>あらすじ</h2>
 
-  <p>
-孤独と後悔を抱えながら生きる茅野咲希(かやのさき)。彼女の前に現れたのは、太陽のように明るい栗栖川妃梨(くりすがわひな)だった。<br>
-過去に囚われ続ける咲希を、妃梨はそばで支えようと決意する。彼女の存在は咲希にとって初めての安らぎとなり、少しずつ心を開いていく。<br>
-これは、過去に傷ついた少女が、希望を見つける物語。
-  </p>
+        </div>
+    </section>
 
+
+    <!-- あらすじ -->
+    <section class="story">
+
+        <div class="story-inner">
+
+            <h2>あらすじ</h2>
+
+            <p>
+                孤独と後悔を抱えながら生きる茅野咲希(かやのさき)。<br>
+                彼女の前に現れたのは、太陽のように明るい栗栖川妃梨(くりすがわひな)だった。<br>
+                過去に囚われ続ける咲希を、妃梨はそばで支えようと決意する。<br>
+                彼女の存在は咲希にとって初めての安らぎとなり、少しずつ心を開いていく。<br><br>
+
+                これは、過去に傷ついた少女が、希望を見つける物語。
+            </p>
 
         </div>
 
     </section>
 
 
-
-    <!-- =========================
-         フッター
-    ========================== -->
-
+    <!-- フッター -->
     <footer>
         © 花咲く場所で希望を育てて
     </footer>
 
-
 </div>
-
 
 </body>
 </html>
