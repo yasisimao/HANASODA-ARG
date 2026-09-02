@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEARCH</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050505;
+  color: #ddd;
+  font-family: monospace;
+}
+
+.container {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 28px;
+  letter-spacing: 4px;
+  font-weight: normal;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+input {
+  flex: 1;
+  padding: 14px;
+  background: #111;
+  border: 1px solid #555;
+  color: #fff;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+button {
+  padding: 14px 24px;
+  background: #111;
+  border: 1px solid #777;
+  color: #ddd;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+button:hover {
+  background: #222;
+}
+
+#results {
+  margin-top: 40px;
+}
+
+.result {
+  padding: 20px 0;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+}
+
+.result:hover {
+  color: white;
+}
+
+.result-title {
+  font-size: 18px;
+}
+
+.result-desc {
+  margin-top: 8px;
+  color: #777;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>SEARCH DATABASE</h1>
+
+<div class="search-box">
+  <input id="keyword" type="text" placeholder="検索語を入力">
+  <button onclick="search()">SEARCH</button>
+</div>
+
+<div id="results"></div>
+
+</div>
+
+<script>
+
+const database = {
+
+  "茅野咲希": {
+    title: "茅野 咲希",
+    desc: "人物記録 / CHARACTER DATA",
+    url: "saki.html"
+  },
+
+  "事件": {
+    title: "あの日の事件",
+    desc: "事件記録 / INCIDENT RECORD",
+    url: "incident.html"
+  },
+
+  "茅野咲希 事件": {
+    title: "あの日の事件",
+    desc: "事件記録 / INCIDENT RECORD",
+    url: "incident.html"
+  },
+
+  "施設": {
+    title: "施設記録 F-0317",
+    desc: "保護施設 / FACILITY RECORD",
+    url: "facility.html"
+  },
+
+  "角": {
+    title: "角について",
+    desc: "身体的特徴 / HORN RECORD",
+    url: "horn.html"
+  },
+
+  "共鳴": {
+    title: "共鳴",
+    desc: "現象記録 / RESONANCE",
+    url: "resonance.html"
+  },
+
+  "共鳴死": {
+    title: "共鳴死",
+    desc: "制限記録 / RESTRICTED RECORD",
+    url: "resonance-death.html"
+  },
+
+  "芽還り": {
+    title: "芽還り",
+    desc: "回復現象 / RECOVERY RECORD",
+    url: "mekaeri.html"
+  },
+
+  "ガジュマル": {
+    title: "ガジュマル",
+    desc: "植物記録 / PLANT RECORD",
+    url: "gajumaru.html"
+  }
+
+};
+
+function search() {
+
+  const word = document.getElementById("keyword").value.trim();
+  const results = document.getElementById("results");
+
+  results.innerHTML = "";
+
+  if (!word) return;
+
+  /*
+    「ホーネット」など、H-NETに繋がる情報は
+    検索結果に存在しない。
+  */
+
+  const data = database[word];
+
+  if (!data) {
+
+    results.innerHTML = `
+      <div class="result">
+        <div class="result-title">検索結果：0件</div>
+        <div class="result-desc">
+          該当する記録はありません。
+        </div>
+      </div>
+    `;
+
+    return;
+  }
+
+  results.innerHTML = `
+    <div class="result" onclick="location.href='${data.url}'">
+      <div class="result-title">${data.title}</div>
+      <div class="result-desc">${data.desc}</div>
+    </div>
+  `;
+}
+
+</script>
+
+</body>
+</html>

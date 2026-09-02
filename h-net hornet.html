@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HORNET ACCOUNT</title>
+
+<style>
+body {
+  margin: 0;
+  background: #050505;
+  color: #bbb;
+  font-family: monospace;
+}
+
+header {
+  border-bottom: 1px solid #333;
+  padding: 25px 35px;
+  letter-spacing: 3px;
+}
+
+.container {
+  max-width: 850px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.status {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.profile {
+  border: 1px solid #333;
+  padding: 30px;
+  line-height: 2;
+}
+
+.mission {
+  margin-top: 40px;
+  border: 1px solid #333;
+  padding: 30px;
+}
+
+.warning {
+  color: #777;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 20px;
+  background: #111;
+  border: 1px solid #555;
+  color: #bbb;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #222;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+H-NET / PRIVATE DATABASE
+</header>
+
+<div class="container">
+
+<div class="status">
+ACCOUNT STATUS：ARCHIVED
+</div>
+
+<div class="profile">
+
+ACCOUNT：HORNET<br>
+REGISTERED NAME：茅野 咲希<br>
+CODENAME：HORNET<br>
+ACCOUNT STATUS：INACTIVE
+
+</div>
+
+<div class="mission">
+
+<h2>MISSION / UNCOMPLETED</h2>
+
+<br>
+
+TARGET：茅野 咲希<br>
+ASSIGNED TO：HORNET<br>
+STATUS：UNCOMPLETED<br>
+LAST UPDATE：DATA CORRUPTED
+
+<br><br>
+
+<div class="warning">
+この依頼は長期間更新されていません。
+</div>
+
+<button onclick="showNotice()">
+MISSION NOTICE を確認する
+</button>
+
+<div id="notice"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function showNotice() {
+
+  document.getElementById("notice").innerHTML = `
+    <br><br>
+    ─────────────────────<br><br>
+
+    MISSION NOTICE<br><br>
+
+    未完了の依頼があります。<br><br>
+
+    この依頼は長期間更新されていません。<br>
+    現在の担当者による更新がない場合、
+    再割り当ての対象となる場合があります。
+
+  `;
+
+}
+
+</script>
+
+</body>
+</html>
