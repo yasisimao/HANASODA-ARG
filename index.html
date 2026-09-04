@@ -749,6 +749,10 @@ nav a:hover{
 }
 
 
+
+/* SEARCH */
+.search-section{padding:0 20px 100px;background:#f8f7f2}.search-area{max-width:1000px;margin:0 auto;padding:55px 20px 75px;text-align:center}.search-area h2{font-size:22px;font-weight:normal;letter-spacing:.12em;color:#666;margin:0 0 28px}.search-box{max-width:620px;margin:0 auto;display:flex;background:#fff;border:1px solid #ddd;box-shadow:0 3px 12px rgba(0,0,0,.03)}.search-box input{flex:1;min-width:0;border:none;outline:none;padding:15px 18px;font-family:inherit;font-size:13px;background:transparent}.search-box button{border:none;border-left:1px solid #ddd;background:#fff;padding:0 25px;font-family:inherit;font-size:12px;color:#555;cursor:pointer}.search-box button:hover{background:#f5f4ef}#searchResult{max-width:620px;margin:18px auto 0;font-size:13px;line-height:2;color:#777}@media(max-width:768px){.search-section{padding-bottom:80px}.search-area{padding:45px 5px 55px}.search-box input{padding:13px 15px}.search-box button{padding:0 18px}}
+
 /* =========================
    FOOTER
 ========================= */
@@ -998,11 +1002,11 @@ footer{
             繧ｭ繝｣繝ｩ繧ｯ繧ｿ繝ｼ
         </a>
 
-        <a href="#">
+        <a href="#search">
             繝九Η繝ｼ繧ｹ
         </a>
 
-        <a href="seach.html">
+        <a href="#search">
             検索
         </a>
 
@@ -1233,7 +1237,14 @@ footer{
 
 </section>
 
-
+<!-- SEARCH -->
+<section id="search" class="search-section">
+<div class="search-area">
+<h2>HANASODA Search</h2>
+<form class="search-box" onsubmit="searchSite(event)"><input id="searchInput" type="search" placeholder="入力..." autocomplete="off"><button type="submit">検索</button></form>
+<div id="searchResult"></div>
+</div>
+</section>
 
 <footer>
 
@@ -1759,6 +1770,9 @@ characterImage.addEventListener(
 );
 
 
+
+/* SEARCH */
+function searchSite(event){event.preventDefault();const keyword=document.getElementById("searchInput").value.trim().toLowerCase();const result=document.getElementById("searchResult");const pages={"さき":"キャラクター.html","咲希":"キャラクター.html","ひな":"キャラクター.html#hina","妃梨":"キャラクター.html#hina","sodatter":"Sodatter.html","そだったー":"Sodatter.html","ニュース":"#search","news":"#search","事件":"Hanasoda!ニュース.html","あの日":"Hanasoda!ニュース.html","5月8日":"Hanasoda!ニュース.html","トップページ":"index.html","花咲く場所で希望を育てて":"index.html","はなそだ":"index.html","くろすけとももた":"くろすけとももた.html","アニメ":"くろすけとももた.html","花屋":"フローライツキ.html","フローライツキ":"フローライツキ.html","flora itsuki":"フローライツキ.html","アルバム":"アルバム.html"};if(!keyword){result.textContent="";return;}for(const key in pages){if(keyword===key.toLowerCase()){result.innerHTML='<a href="'+pages[key]+'">「'+key+'」のページを見る</a>';return;}}result.textContent="該当するページが見つかりません。";}
 
 /* =========================
    IF世界のランダムな異常
