@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>H-NET LOGIN</title>
+<title>ASSASSCON ログイン</title>
 
 <style>
+
 body {
   margin: 0;
   background: #050505;
   color: #bbb;
-  font-family: monospace;
+  font-family: "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
 }
 
 .container {
@@ -39,7 +40,7 @@ input {
   background: #0d0d0d;
   border: 1px solid #444;
   color: white;
-  font-family: monospace;
+  font-family: "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
 }
 
 button {
@@ -49,7 +50,7 @@ button {
   background: #111;
   border: 1px solid #555;
   color: #bbb;
-  font-family: monospace;
+  font-family: "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
   cursor: pointer;
 }
 
@@ -60,7 +61,9 @@ button:hover {
 #error {
   margin-top: 20px;
   color: #777;
+  line-height: 1.7;
 }
+
 </style>
 </head>
 
@@ -68,16 +71,16 @@ button:hover {
 
 <div class="container">
 
-<h1>H-NET LOGIN</h1>
+<h1>ASSASSCON ログイン</h1>
 
-<label>ACCOUNT</label>
+<label>コードネーム</label>
 <input id="account" type="text">
 
-<label>PASSWORD</label>
+<label>パスワード</label>
 <input id="password" type="password">
 
 <button onclick="login()">
-LOGIN
+ログイン
 </button>
 
 <div id="error"></div>
@@ -94,6 +97,27 @@ function login() {
   const password =
     document.getElementById("password").value.trim();
 
+  /*
+   * HORNETのアカウントが
+   * 以前に削除されているか確認
+   */
+
+  if (
+    account.toUpperCase() === "HORNET" &&
+    localStorage.getItem("HORNET_deleted") === "true"
+  ) {
+
+    document.getElementById("error").textContent =
+      "このアカウントは削除されています。";
+
+    return;
+  }
+
+
+  /*
+   * 通常のログイン処理
+   */
+
   if (
     account.toUpperCase() === "HORNET" &&
     password.toLowerCase() === "gajumaru"
@@ -104,7 +128,7 @@ function login() {
   } else {
 
     document.getElementById("error").textContent =
-      "ACCESS DENIED.";
+      "コードネームかパスワードが間違っています。";
 
   }
 
