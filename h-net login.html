@@ -6,15 +6,12 @@
 <title>ASSASSCON ログイン</title>
 
 <style>
-
 body {
   margin: 0;
   background: #050505;
   color: #bbb;
   font-family: "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
 }
-
-/* 戻るボタン */
 
 .back-button {
   position: fixed;
@@ -34,7 +31,6 @@ body {
   color: #bbb;
   border-color: #666;
 }
-
 
 .container {
   max-width: 420px;
@@ -85,84 +81,51 @@ button:hover {
   color: #777;
   line-height: 1.7;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- h-net index.htmlへ戻る -->
 <a href="h-net index.html" class="back-button">
   ← 戻る
 </a>
 
-
 <div class="container">
 
-<h1>ASSASSCON ログイン</h1>
+  <h1>ASSASSCON ログイン</h1>
 
-<label>コードネーム</label>
-<input id="account" type="text">
+  <label>コードネーム</label>
+  <input id="account" type="text">
 
-<label>パスワード</label>
-<input id="password" type="password">
+  <label>パスワード</label>
+  <input id="password" type="password">
 
-<button onclick="login()">
-ログイン
-</button>
+  <button onclick="login()">
+    ログイン
+  </button>
 
-<div id="error"></div>
+  <div id="error"></div>
 
 </div>
 
-
 <script>
-
 function login() {
-
   const account =
     document.getElementById("account").value.trim();
 
   const password =
     document.getElementById("password").value.trim();
 
-  /*
-   * HORNETのアカウントが
-   * 以前に削除されているか確認
-   */
-
-  if (
-    account.toUpperCase() === "HORNET" &&
-    localStorage.getItem("HORNET_deleted") === "true"
-  ) {
-
-    document.getElementById("error").textContent =
-      "このアカウントは削除されています。";
-
-    return;
-  }
-
-
-  /*
-   * 通常のログイン処理
-   */
-
   if (
     account.toUpperCase() === "HORNET" &&
     password.toLowerCase() === "gajumaru"
   ) {
-
     location.href = "h-net hornet.html";
-
   } else {
-
     document.getElementById("error").textContent =
       "コードネームかパスワードが間違っています。";
-
   }
-
 }
-
 </script>
 
 </body>
