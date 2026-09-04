@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>花蜥ｲく場所で蟶望を育てて</title>
+<title>花咲く場所で希望を育てて</title>
 
 <style>
 
@@ -24,96 +24,10 @@ body{
     background:#f8f7f2;
     color:#333;
     overflow-x:hidden;
-    position:relative;
 }
-
-
-/* =========================
-   IF世界・ノイズ
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:9999;
-
-    opacity:.10;
-
-    background-image:
-        repeating-radial-gradient(
-            circle at 0 0,
-            rgba(0,0,0,.5) 0,
-            rgba(0,0,0,.5) 1px,
-            transparent 1px,
-            transparent 3px
-        );
-
-    animation:noiseMove .18s steps(2) infinite;
-}
-
-@keyframes noiseMove{
-
-    0%{
-        transform:translate(0,0);
-    }
-
-    25%{
-        transform:translate(-3px,2px);
-    }
-
-    50%{
-        transform:translate(2px,-2px);
-    }
-
-    75%{
-        transform:translate(1px,3px);
-    }
-
-    100%{
-        transform:translate(-2px,-1px);
-    }
-
-}
-
-
-body.if-glitch{
-    animation:screenGlitch .12s steps(2);
-}
-
-@keyframes screenGlitch{
-
-    0%{
-        transform:translate(0);
-    }
-
-    30%{
-        transform:translate(-4px,0);
-    }
-
-    60%{
-        transform:translate(3px,1px);
-    }
-
-    100%{
-        transform:translate(0);
-    }
-
-}
-
 
 a{
     color:inherit;
-}
-
-
-/* =========================
-   文字化け
-========================= */
-
-.garbled{
-    letter-spacing:.03em;
 }
 
 
@@ -129,46 +43,7 @@ header{
     padding:0 7%;
     border-bottom:1px solid #ddd;
     background:rgba(255,255,255,0.8);
-
-    position:relative;
 }
-
-header::after{
-    content:"";
-    position:absolute;
-
-    width:70px;
-    height:1px;
-
-    background:#aaa;
-
-    right:22%;
-    bottom:-1px;
-
-    opacity:.4;
-
-    animation:headerBreak 5s infinite;
-}
-
-@keyframes headerBreak{
-
-    0%,88%,100%{
-        opacity:.1;
-        transform:translateX(0);
-    }
-
-    90%{
-        opacity:.8;
-        transform:translateX(15px);
-    }
-
-    93%{
-        opacity:0;
-        transform:translateX(-8px);
-    }
-
-}
-
 
 .logo{
     font-size:18px;
@@ -199,61 +74,7 @@ nav a:hover{
     justify-content:center;
     text-align:center;
     padding:60px 20px;
-
-    position:relative;
 }
-
-.hero::before{
-    content:"";
-
-    position:absolute;
-
-    width:190px;
-    height:90px;
-
-    left:8%;
-    top:30%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(100,100,100,.05) 40%,
-            rgba(0,0,0,.08) 50%,
-            transparent 60%
-        );
-
-    transform:skewX(-12deg);
-
-    opacity:.5;
-
-    animation:backgroundDistortion 7s infinite;
-}
-
-@keyframes backgroundDistortion{
-
-    0%,82%,100%{
-        opacity:0;
-        transform:translateX(0) skewX(-12deg);
-    }
-
-    84%{
-        opacity:.6;
-        transform:translateX(20px) skewX(-12deg);
-    }
-
-    87%{
-        opacity:.15;
-        transform:translateX(-35px) skewX(-12deg);
-    }
-
-    90%{
-        opacity:.5;
-        transform:translateX(10px) skewX(-12deg);
-    }
-
-}
-
 
 .hero h1{
     font-size:clamp(30px,6vw,58px);
@@ -261,8 +82,6 @@ nav a:hover{
     letter-spacing:0.12em;
     line-height:1.6;
     margin:0 0 25px;
-
-    position:relative;
 }
 
 .hero p{
@@ -301,47 +120,7 @@ nav a:hover{
     padding:55px 65px;
     text-align:center;
     box-shadow:0 3px 12px rgba(0,0,0,0.03);
-
-    position:relative;
 }
-
-.story-box::after{
-    content:"";
-
-    position:absolute;
-
-    top:35%;
-    left:-1px;
-
-    width:100%;
-    height:2px;
-
-    background:rgba(80,80,80,.08);
-
-    opacity:0;
-
-    animation:scanline 8s infinite;
-}
-
-@keyframes scanline{
-
-    0%,84%,100%{
-        opacity:0;
-        transform:translateX(0);
-    }
-
-    86%{
-        opacity:1;
-        transform:translateX(12px);
-    }
-
-    88%{
-        opacity:.2;
-        transform:translateX(-18px);
-    }
-
-}
-
 
 .story-box p{
     font-size:14px;
@@ -374,9 +153,7 @@ nav a:hover{
 }
 
 
-/* =========================
-   CHARACTER SLIDER
-========================= */
+/* キャラクタースライダー */
 
 .character-slider{
     position:relative;
@@ -409,51 +186,6 @@ nav a:hover{
         background .35s ease,
         border-color .35s ease,
         box-shadow .35s ease;
-
-    position:relative;
-}
-
-.character-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:100%;
-    height:1px;
-
-    left:0;
-    top:42%;
-
-    background:rgba(80,80,80,.12);
-
-    opacity:0;
-
-    animation:cardGlitch 6s infinite;
-}
-
-@keyframes cardGlitch{
-
-    0%,76%,100%{
-        opacity:0;
-        transform:translateX(0);
-    }
-
-    78%{
-        opacity:.8;
-        transform:translateX(15px);
-    }
-
-    80%{
-        opacity:.2;
-        transform:translateX(-20px);
-    }
-
-    82%{
-        opacity:.6;
-        transform:translateX(5px);
-    }
-
 }
 
 
@@ -468,8 +200,6 @@ nav a:hover{
     display:flex;
     justify-content:center;
     align-items:center;
-
-    position:relative;
 }
 
 .saki-image-wrap{
@@ -479,7 +209,6 @@ nav a:hover{
     justify-content:center;
     align-items:center;
 }
-
 
 .normal-character-image{
     width:auto;
@@ -493,52 +222,6 @@ nav a:hover{
     -webkit-touch-callout:none;
 
     transition:opacity .2s ease;
-
-    position:relative;
-}
-
-
-.saki-image-wrap::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:transparent;
-
-    border-left:1px solid rgba(100,100,100,.15);
-
-    opacity:0;
-
-    pointer-events:none;
-
-    animation:imageGlitch 9s infinite;
-}
-
-@keyframes imageGlitch{
-
-    0%,70%,100%{
-        opacity:0;
-        transform:translate(0);
-    }
-
-    72%{
-        opacity:.8;
-        transform:translate(8px,-2px);
-    }
-
-    74%{
-        opacity:.2;
-        transform:translate(-12px,2px);
-    }
-
-    76%{
-        opacity:.6;
-        transform:translate(4px,0);
-    }
-
 }
 
 
@@ -627,20 +310,40 @@ nav a:hover{
         0 8px 25px rgba(0,0,0,0.18);
 }
 
+
+/* HORNETを赤色に */
+
 .character-card.hornet-mode .character-info h3{
+
     color:#b00000;
+
 }
+
+
+/* 英字 */
 
 .character-card.hornet-mode .character-en{
+
     color:#888;
+
 }
+
+
+/* プロフィール */
 
 .character-card.hornet-mode .character-info p{
+
     color:#ccc;
+
 }
 
+
+/* 説明文 */
+
 .character-card.hornet-mode .character-description{
+
     color:#aaa;
+
 }
 
 
@@ -672,9 +375,17 @@ nav a:hover{
         color .25s ease;
 }
 
+
+/* HORNET時だけ表示 */
+
 .character-card.hornet-mode .underworld-button{
+
     display:inline-block;
+
 }
+
+
+/* ホバー */
 
 .underworld-button:hover{
 
@@ -711,15 +422,21 @@ nav a:hover{
 }
 
 .character-arrow:hover{
+
     color:#444;
+
 }
 
 .character-arrow.left:hover{
+
     transform:translateX(-4px);
+
 }
 
 .character-arrow.right:hover{
+
     transform:translateX(4px);
+
 }
 
 
@@ -741,11 +458,15 @@ nav a:hover{
 }
 
 .character-dots span{
+
     transition:color .2s;
+
 }
 
 .character-dots .active{
+
     color:#555;
+
 }
 
 
@@ -775,7 +496,9 @@ footer{
 @media(max-width:900px){
 
     .character-slider{
+
         gap:10px;
+
     }
 
     .character-card{
@@ -814,107 +537,167 @@ footer{
 @media(max-width:768px){
 
     header{
+
         padding:0 20px;
+
     }
 
     .logo{
+
         font-size:14px;
+
         letter-spacing:0.1em;
+
     }
 
     nav a{
+
         margin-left:10px;
+
         font-size:11px;
+
     }
 
     .hero{
+
         min-height:calc(100vh - 70px);
+
         padding:40px 20px;
+
     }
 
     .hero h1{
+
         font-size:28px;
+
         letter-spacing:4px;
+
     }
 
     .hero p{
+
         font-size:13px;
+
     }
 
     .story{
+
         padding:90px 20px 110px;
+
     }
 
     .story h2{
+
         font-size:24px;
+
         margin-bottom:40px;
+
     }
 
     .story-box{
+
         padding:35px 25px;
+
     }
 
     .story-box p{
+
         font-size:13px;
+
         line-height:2.3;
+
     }
 
     .characters{
+
         padding:90px 15px 110px;
+
     }
 
     .characters h2{
+
         font-size:24px;
+
         margin-bottom:40px;
+
     }
 
     .character-slider{
+
         gap:0;
+
     }
 
     .character-card{
+
         width:calc(100% - 70px);
+
         min-height:auto;
+
         flex-direction:column;
+
         text-align:center;
+
         padding:40px 20px 45px;
+
         gap:25px;
+
     }
 
     .character-image-area{
+
         flex:0 0 auto;
+
         width:100%;
+
         height:300px;
+
     }
 
     .normal-character-image{
+
         height:300px;
+
         max-width:80vw;
+
     }
 
     .character-info{
+
         width:100%;
+
     }
 
     .character-info h3{
+
         font-size:24px;
+
     }
 
     .character-en{
+
         margin-bottom:22px;
+
     }
 
     .character-info p{
+
         font-size:12px;
+
     }
 
     .character-arrow{
+
         width:35px;
+
         font-size:20px;
+
     }
 
     .character-dots{
+
         margin-top:28px;
+
     }
 
 }
@@ -943,28 +726,41 @@ footer{
     }
 
     nav a{
+
         margin:0 6px;
+
     }
 
     .hero{
+
         min-height:calc(100vh - 100px);
+
     }
 
     .story-box{
+
         padding:30px 20px;
+
     }
 
     .character-card{
+
         width:calc(100% - 55px);
+
         padding:35px 15px 40px;
+
     }
 
     .character-image-area{
+
         height:270px;
+
     }
 
     .normal-character-image{
+
         height:270px;
+
     }
 
 }
@@ -985,21 +781,21 @@ footer{
 <header>
 
     <div class="logo">
-        花蜥ｲく場所で蟶望を育てて
+        花咲く場所で希望を育てて
     </div>
 
     <nav>
 
         <a href="#story">
-            繧｢繧峨せ縺ｘ
+            あらすじ
         </a>
 
         <a href="#characters">
-            繧ｭ繝｣繝ｩ繧ｯ繧ｿ繝ｼ
+            キャラクター
         </a>
 
         <a href="#">
-            繝九Η繝ｼ繧ｹ
+            ニュース
         </a>
 
         <a href="seach.html">
@@ -1021,8 +817,8 @@ footer{
     <div>
 
         <h1>
-            花蜥ｲく場所で<br>
-            蟶望を育てて
+            花咲く場所で<br>
+            希望を育てて
         </h1>
 
         <p>
@@ -1045,30 +841,26 @@ footer{
     <div class="story-inner">
 
         <h2>
-            繧｢繧峨せ縺ｿ
+            あらすじ
         </h2>
 
         <div class="story-box">
 
             <p>
 
-                孤独と蠎悔を抱えながら生きる
-                <span class="garbled">闌?㍽蜥ｲ蟶</span>(かやのさき)。<br>
+                孤独と後悔を抱えながら生きる茅野咲希(かやのさき)。<br>
 
                 彼女の前に現れたのは、
                 太陽のように明るい栗栖川妃梨(くりすがわひな)だった。<br>
 
-                過去に囚われ続ける
-                <span class="garbled">蜥ｲ蟶</span>を、
+                過去に囚われ続ける咲希を、
                 妃梨はそばで支えようと決意する。<br>
 
-                彼女の存在は
-                <span class="garbled">蜥ｲ蟶</span>にとって
-                初めての安らぎとなり、
+                彼女の存在は咲希にとって初めての安らぎとなり、
                 少しずつ心を開いていく。<br><br>
 
                 これは、過去に傷ついた少女が、
-                <span class="garbled">蟶</span>望を見つける物語。
+                希望を見つける物語。
 
             </p>
 
@@ -1096,6 +888,8 @@ footer{
         <div class="character-slider">
 
 
+            <!-- 左ボタン -->
+
             <button
                 class="character-arrow left"
                 onclick="changeCharacter(-1)"
@@ -1107,8 +901,12 @@ footer{
 
 
 
+            <!-- キャラクターカード -->
+
             <div id="characterCard" class="character-card">
 
+
+                <!-- 画像 -->
 
                 <div class="character-image-area">
 
@@ -1128,11 +926,13 @@ footer{
 
 
 
+                <!-- プロフィール -->
+
                 <div class="character-info">
 
 
                     <h3 id="characterName">
-                        <span class="garbled">闌?㍽蜥ｲ蟶</span>
+                        茅野 咲希
                     </h3>
 
 
@@ -1146,12 +946,12 @@ footer{
 
 
                     <p id="characterJob">
-                        大學1年 
+                        大学1年生
                     </p>
 
 
                     <p id="characterBirthday">
-                        誕生日：5月4 
+                        誕生日：5月4日
                     </p>
 
 
@@ -1164,21 +964,22 @@ footer{
                         id="characterDescription"
                         class="character-description">
 
-                        クールで冷靜。
-                        どこか近寄りがたい空氣を纏い、
-                        必要以上に他人と關わろうとはしな 。
+                        クールで冷静。
+                        どこか近寄りがたい空気を纏い、
+                        必要以上に他人と関わろうとはしない。
 
                     </p>
 
 
                     <p id="characterLikes">
 
-                        好きなもの：甘いもの、貓、
-                        <span class="garbled">蜥ｲ蟶</span>
+                        好きなもの：甘いもの、猫、妃梨
 
                     </p>
 
 
+
+                    <!-- HORNET時だけ表示 -->
 
                     <a
                         id="underworldButton"
@@ -1196,6 +997,8 @@ footer{
 
 
 
+            <!-- 右ボタン -->
+
             <button
                 class="character-arrow right"
                 onclick="changeCharacter(1)"
@@ -1208,6 +1011,8 @@ footer{
         </div>
 
 
+
+        <!-- ドット -->
 
         <div class="character-dots">
 
@@ -1235,9 +1040,13 @@ footer{
 
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-    © 花蜥ｲく場所で蟶望を育てて
+    © 花咲く場所で希望を育てて
 
 </footer>
 
@@ -1256,22 +1065,17 @@ const characters = [
 
     {
         image:"saki.png",
-
-        nameHTML:"<span class='garbled'>闌?㍽蜥ｲ蟶</span>",
-
+        name:"茅野 咲希",
         en:"SAKI KAYANO",
-
-        job:"大學1年 ",
-
-        birthday:"誕生日：5月4 ",
-
+        job:"大学1年生",
+        birthday:"誕生日：5月4日",
         height:"身長：158㎝",
 
-        descriptionHTML:
-        "クールで冷靜。どこか近寄りがたい空氣を纏い、必要以上に他人と關わろうとはしな 。",
+        description:
+        "クールで冷静。どこか近寄りがたい空気を纏い、必要以上に他人と関わろうとはしない。",
 
-        likesHTML:
-        "好きなもの：甘いもの、貓、<span class='garbled'>蜥ｲ蟶</span>",
+        likes:
+        "好きなもの：甘いもの、猫、妃梨",
 
         pink:false
     },
@@ -1279,22 +1083,17 @@ const characters = [
 
     {
         image:"hiri.png",
-
-        nameHTML:"栗栖川 妃梨",
-
-        en:"HINA KURISAWA",
-
-        job:"大學1年生",
-
+        name:"栗栖川 妃梨",
+        en:"HINA KURISUGAWA",
+        job:"大学1年生",
         birthday:"誕生日：7月24日",
-
         height:"身長：156㎝",
 
-        descriptionHTML:
+        description:
         "明るく人懐っこい性格。自然と人の輪の中心にいるタイプで、少しおっちょこちょいなところもあるが、芯は強い。",
 
-        likesHTML:
-        "好きなもの：<span class='garbled'>蜥ｲ蟶</span>、カフェ、ファッション",
+        likes:
+        "好きなもの：咲希、カフェ、ファッション",
 
         pink:true
     },
@@ -1302,21 +1101,16 @@ const characters = [
 
     {
         image:"hiri.png",
-
-        nameHTML:"イツキネコ",
-
+        name:"イツキネコ",
         en:"ITSUKINEKO",
-
         job:"植物の精霊",
-
         birthday:"",
-
         height:"",
 
-        descriptionHTML:
+        description:
         "命芽持ちの頭に直接語りかけるように話す。一般の人からは猫の鳴き声に聞こえる。",
 
-        likesHTML:"",
+        likes:"",
 
         pink:false
     },
@@ -1324,21 +1118,16 @@ const characters = [
 
     {
         image:"hiri.png",
-
-        nameHTML:"桜井 麻耶",
-
+        name:"桜井 麻耶",
         en:"MAYA SAKURAI",
-
         job:"花屋の店長",
-
         birthday:"誕生日：9月15日",
-
         height:"身長：168cm",
 
-        descriptionHTML:
+        description:
         "おっとり、ちょっと天然。人懐っこく感情豊かな大型犬系。",
 
-        likesHTML:
+        likes:
         "好きなもの：植物、猫、ブラウン",
 
         pink:true
@@ -1352,6 +1141,7 @@ let currentCharacter = 0;
 let hornetMode = false;
 
 
+
 /* =========================
    キャラクター切り替え
 ========================= */
@@ -1362,17 +1152,22 @@ function changeCharacter(direction){
 
 
     if(currentCharacter >= characters.length){
+
         currentCharacter = 0;
+
     }
 
 
     if(currentCharacter < 0){
+
         currentCharacter = characters.length - 1;
+
     }
 
 
-    hornetMode = false;
+    /* HORNET解除 */
 
+    hornetMode = false;
 
     document
         .getElementById("characterCard")
@@ -1384,6 +1179,7 @@ function changeCharacter(direction){
         .querySelector(".character-info")
         .classList
         .remove("hornet-mode");
+
 
 
     const character =
@@ -1401,8 +1197,7 @@ function changeCharacter(direction){
 
         image.src = character.image;
 
-        image.alt = character.nameHTML
-            .replace(/<[^>]*>/g,"");
+        image.alt = character.name;
 
         image.style.opacity = "1";
 
@@ -1410,11 +1205,13 @@ function changeCharacter(direction){
 
 
 
+    /* 名前 */
+
     const name =
         document.getElementById("characterName");
 
-    name.innerHTML =
-        character.nameHTML;
+    name.textContent =
+        character.name;
 
 
     name.classList.toggle(
@@ -1424,6 +1221,8 @@ function changeCharacter(direction){
 
 
 
+    /* 英語名 */
+
     document
         .getElementById("characterEn")
         .textContent =
@@ -1431,12 +1230,16 @@ function changeCharacter(direction){
 
 
 
+    /* 職業 */
+
     document
         .getElementById("characterJob")
         .textContent =
         character.job;
 
 
+
+    /* 誕生日 */
 
     const birthday =
         document.getElementById(
@@ -1453,6 +1256,8 @@ function changeCharacter(direction){
 
 
 
+    /* 身長 */
+
     const height =
         document.getElementById(
             "characterHeight"
@@ -1468,29 +1273,35 @@ function changeCharacter(direction){
 
 
 
+    /* 説明 */
+
     document
         .getElementById(
             "characterDescription"
         )
-        .innerHTML =
-        character.descriptionHTML;
+        .textContent =
+        character.description;
 
 
+
+    /* 好きなもの */
 
     const likes =
         document.getElementById(
             "characterLikes"
         );
 
-    likes.innerHTML =
-        character.likesHTML;
+    likes.textContent =
+        character.likes;
 
     likes.style.display =
-        character.likesHTML
+        character.likes
         ? "block"
         : "none";
 
 
+
+    /* ドット */
 
     for(
         let i = 0;
@@ -1544,26 +1355,43 @@ let isLongPressing = false;
 
 
 
+/* 長押し開始 */
+
 function startSakiLongPress(){
 
+    /* 咲希以外では発動しない */
+
     if(currentCharacter !== 0){
+
         return;
+
     }
 
 
+    /* すでにHORNETなら発動しない */
+
     if(hornetMode){
+
         return;
+
     }
 
 
     isLongPressing = true;
 
 
+    /*
+       画面上には何も表示しない
+    */
+
+
     longpressTimer =
         setTimeout(function(){
 
             if(isLongPressing){
+
                 showHornetProfile();
+
             }
 
         },3000);
@@ -1571,6 +1399,8 @@ function startSakiLongPress(){
 }
 
 
+
+/* 長押しキャンセル */
 
 function cancelSakiLongPress(){
 
@@ -1595,12 +1425,17 @@ function cancelSakiLongPress(){
 function showHornetProfile(){
 
     if(currentCharacter !== 0){
+
         return;
+
     }
 
 
     hornetMode = true;
 
+
+
+    /* カードを黒にする */
 
     const card =
         document.getElementById(
@@ -1612,6 +1447,9 @@ function showHornetProfile(){
     );
 
 
+
+    /* プロフィール演出 */
+
     const info =
         document.querySelector(
             ".character-info"
@@ -1621,6 +1459,9 @@ function showHornetProfile(){
         "hornet-mode"
     );
 
+
+
+    /* 名前 */
 
     const name =
         document.getElementById(
@@ -1635,6 +1476,9 @@ function showHornetProfile(){
     );
 
 
+
+    /* 英語 */
+
     document
         .getElementById(
             "characterEn"
@@ -1643,6 +1487,9 @@ function showHornetProfile(){
         "CODE NAME : HORNET";
 
 
+
+    /* 職業 */
+
     document
         .getElementById(
             "characterJob"
@@ -1650,6 +1497,9 @@ function showHornetProfile(){
         .textContent =
         "殺し屋";
 
+
+
+    /* 識別番号 */
 
     const birthday =
         document.getElementById(
@@ -1663,6 +1513,9 @@ function showHornetProfile(){
         "block";
 
 
+
+    /* 身長を隠す */
+
     document
         .getElementById(
             "characterHeight"
@@ -1672,6 +1525,9 @@ function showHornetProfile(){
         "none";
 
 
+
+    /* 説明 */
+
     document
         .getElementById(
             "characterDescription"
@@ -1679,6 +1535,9 @@ function showHornetProfile(){
         .textContent =
         "感情を表に出すことは少なく、任務を淡々と遂行する。";
 
+
+
+    /* 武器 */
 
     const likes =
         document.getElementById(
@@ -1702,7 +1561,9 @@ function showHornetProfile(){
 characterImage.addEventListener(
     "mousedown",
     function(){
+
         startSakiLongPress();
+
     }
 );
 
@@ -1710,7 +1571,9 @@ characterImage.addEventListener(
 characterImage.addEventListener(
     "mouseup",
     function(){
+
         cancelSakiLongPress();
+
     }
 );
 
@@ -1718,14 +1581,16 @@ characterImage.addEventListener(
 characterImage.addEventListener(
     "mouseleave",
     function(){
+
         cancelSakiLongPress();
+
     }
 );
 
 
 
 /* =========================
-   スマホ操作
+   スマホ・タッチ操作
 ========================= */
 
 characterImage.addEventListener(
@@ -1746,7 +1611,9 @@ characterImage.addEventListener(
 characterImage.addEventListener(
     "touchend",
     function(){
+
         cancelSakiLongPress();
+
     }
 );
 
@@ -1754,38 +1621,11 @@ characterImage.addEventListener(
 characterImage.addEventListener(
     "touchcancel",
     function(){
+
         cancelSakiLongPress();
+
     }
 );
-
-
-
-/* =========================
-   IF世界のランダムな異常
-========================= */
-
-function randomGlitch(){
-
-    document.body.classList.add("if-glitch");
-
-    setTimeout(function(){
-
-        document.body.classList.remove("if-glitch");
-
-    },120);
-
-}
-
-
-setInterval(function(){
-
-    if(Math.random() < 0.55){
-
-        randomGlitch();
-
-    }
-
-},4500);
 
 </script>
 
