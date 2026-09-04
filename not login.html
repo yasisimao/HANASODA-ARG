@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASSASSCON ログイン</title>
+
+<style>
+body {
+  margin: 0;
+  background: #050505;
+  color: #bbb;
+  font-family: "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  padding: 8px 14px;
+  background: #0d0d0d;
+  border: 1px solid #444;
+  color: #888;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.back-button:hover {
+  background: #181818;
+  color: #bbb;
+  border-color: #666;
+}
+
+.container {
+  max-width: 420px;
+  margin: 150px auto;
+  padding: 30px;
+  border: 1px solid #333;
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: 3px;
+}
+
+label {
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  background: #0d0d0d;
+  border: 1px solid #444;
+  color: white;
+  font-family: "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 13px;
+  background: #111;
+  border: 1px solid #555;
+  color: #bbb;
+  font-family: "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #222;
+}
+
+#error {
+  margin-top: 20px;
+  color: #777;
+  line-height: 1.7;
+}
+</style>
+</head>
+
+<body>
+
+<a href="h-net index.html" class="back-button">
+  ← 戻る
+</a>
+
+<div class="container">
+
+  <h1>ASSASSCON ログイン</h1>
+
+  <label>コードネーム</label>
+  <input id="account" type="text">
+
+  <label>パスワード</label>
+  <input id="password" type="password">
+
+  <button onclick="login()">
+    ログイン
+  </button>
+
+  <div id="error"></div>
+
+</div>
+
+<script>
+function login() {
+  const account =
+    document.getElementById("account").value.trim();
+
+  const password =
+    document.getElementById("password").value.trim();
+
+  // HORNETの正しいログイン情報
+  if (
+    account.toUpperCase() === "HORNET" &&
+    password.toLowerCase() === "gajumaru"
+  ) {
+    document.getElementById("error").textContent =
+      "このアカウントは削除されています。";
+    return;
+  }
+
+  // 間違ったログイン情報
+  document.getElementById("error").textContent =
+    "コードネームかパスワードが間違っています。";
+}
+</script>
+
+</body>
+</html>
