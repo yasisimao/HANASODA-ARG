@@ -470,6 +470,205 @@ nav a:hover{
 }
 
 
+
+
+/* =========================
+   SEARCH & NEWS
+========================= */
+
+.search-news{
+    background:#f8f7f2;
+    padding:0 0 100px;
+}
+
+.search-area{
+    max-width:1000px;
+    margin:0 auto;
+    padding:55px 20px 75px;
+    text-align:center;
+}
+
+.search-area h2{
+    margin:0 0 24px;
+    font-size:22px;
+    font-weight:normal;
+    letter-spacing:.12em;
+    color:#444;
+}
+
+.search-area h2::after{
+    content:"";
+    display:block;
+    width:28px;
+    height:1px;
+    margin:16px auto 0;
+    background:#aaa;
+}
+
+.search-box{
+    display:flex;
+    max-width:620px;
+    margin:0 auto;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 2px 10px rgba(0,0,0,.025);
+}
+
+.search-box input{
+    flex:1;
+    min-width:0;
+    padding:14px 17px;
+    border:0;
+    outline:none;
+    background:transparent;
+    color:#444;
+    font-family:inherit;
+    font-size:13px;
+}
+
+.search-box button{
+    padding:0 25px;
+    border:0;
+    border-left:1px solid #ddd;
+    background:#fff;
+    color:#666;
+    font-family:inherit;
+    cursor:pointer;
+    transition:background .2s,color .2s;
+}
+
+.search-box button:hover{
+    background:#f1f0eb;
+    color:#333;
+}
+
+#searchResult{
+    min-height:24px;
+    margin-top:18px;
+    color:#777;
+    font-size:12px;
+    line-height:1.8;
+}
+
+.news-area{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 20px;
+}
+
+.news-heading{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin:0 0 25px;
+}
+
+.news-heading h2{
+    margin:0;
+    font-size:22px;
+    font-weight:normal;
+    letter-spacing:.1em;
+}
+
+.news-heading span{
+    color:#999;
+    font-size:10px;
+    letter-spacing:.15em;
+}
+
+.news-container{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 280px;
+    gap:45px;
+}
+
+.news-main,
+.news-side{
+    background:#fff;
+    border:1px solid #e0dfda;
+}
+
+.news-main a{
+    display:block;
+    padding:19px 22px;
+    border-bottom:1px solid #ecebe7;
+    color:#555;
+    text-decoration:none;
+    font-size:13px;
+    line-height:1.8;
+    transition:background .2s,color .2s;
+}
+
+.news-main a:last-child{
+    border-bottom:0;
+}
+
+.news-main a:hover{
+    background:#faf9f5;
+    color:#222;
+}
+
+.news-side{
+    padding:22px 24px;
+}
+
+.news-side h3{
+    margin:0 0 18px;
+    font-size:14px;
+    font-weight:normal;
+    letter-spacing:.1em;
+}
+
+.ranking{
+    margin:0;
+    padding:0;
+    list-style:none;
+    counter-reset:rank;
+}
+
+.ranking li{
+    counter-increment:rank;
+    padding:12px 0 12px 30px;
+    border-top:1px solid #ecebe7;
+    position:relative;
+    color:#666;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.ranking li::before{
+    content:counter(rank, decimal-leading-zero);
+    position:absolute;
+    left:0;
+    top:12px;
+    color:#aaa;
+    font-size:10px;
+}
+
+@media(max-width:768px){
+    .search-news{
+        padding-bottom:70px;
+    }
+
+    .search-area{
+        padding:45px 20px 60px;
+    }
+
+    .search-box button{
+        padding:0 18px;
+    }
+
+    .news-heading{
+        margin-bottom:20px;
+    }
+
+    .news-container{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+}
+
+
 /* =========================
    FOOTER
 ========================= */
@@ -765,6 +964,16 @@ footer{
 
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
+#story,
+#characters,
+#news{
+    scroll-margin-top:80px;
+}
+
 </style>
 </head>
 
@@ -794,11 +1003,11 @@ footer{
             キャラクター
         </a>
 
-        <a href="#">
+        <a href="#news">
             ニュース
         </a>
 
-        <a href="seach.html">
+        <a href="#news">
             検索
         </a>
 
@@ -1038,6 +1247,70 @@ footer{
 
 </section>
 
+
+
+
+
+<!-- =========================
+     SEARCH & NEWS
+========================= -->
+
+<section id="news" class="search-news">
+
+    <div class="search-area">
+
+        <h2>HANASODA Search</h2>
+
+        <form class="search-box" onsubmit="searchSite(event)">
+            <input
+                id="searchInput"
+                type="search"
+                placeholder="入力..."
+                autocomplete="off"
+            >
+            <button type="submit">検索</button>
+        </form>
+
+        <div id="searchResult"></div>
+
+    </div>
+
+
+    <div class="news-area">
+
+        <div class="news-heading">
+            <h2>主要ニュース</h2>
+            <span>NEWS</span>
+        </div>
+
+        <div class="news-container">
+
+            <div class="news-main">
+                <a href="はなそだcomico.html">
+                    【新作公開】“何気ない昼休み”に隠れた距離の変化　縦読み漫画『花咲く場所で希望を育てて〜高校昼休み編〜』が公開
+                </a>
+                <a href="やさいーズ.html">
+                    【話題】“意味がわからないのに使いたくなる”　ふざけすぎたLINEスタンプ『おかしなやさいーズ』が登場
+                </a>
+                <a href="記事1.html">
+                    【特集】くろすけとももた最新話が話題に
+                </a>
+                <a href="#">
+                    制作陣「物語はここから動く」
+                </a>
+                <a href="#">
+                    深夜限定で公開された記事とは
+                </a>
+                <a href="Hanasoda!ニュース.html">
+                    【速報】自宅で両親死亡、5歳女児を保護　近隣住民が通報
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
 <!-- =========================
@@ -1627,7 +1900,51 @@ characterImage.addEventListener(
     }
 );
 
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchSite(event){
+    event.preventDefault();
+
+    const input = document.getElementById("searchInput");
+    const result = document.getElementById("searchResult");
+    const word = input.value.trim().toLowerCase();
+
+    if(!word){
+        result.textContent = "検索ワードを入力してください。";
+        return;
+    }
+
+    const results = [
+        { words:["さき","咲希"], text:"茅野 咲希 — キャラクター", url:"キャラクター.html" },
+        { words:["ひな","妃梨"], text:"栗栖川 妃梨 — キャラクター", url:"キャラクター.html#hina" },
+        { words:["sodatter","そだったー"], text:"Sodatter", url:"Sodatter.html" },
+        { words:["ニュース","news"], text:"主要ニュース", url:"#news" },
+        { words:["事件","あの日","5月8日"], text:"事件についての記事", url:"Hanasoda!ニュース.html" },
+        { words:["トップページ","花咲く場所で希望を育てて","はなそだ"], text:"花咲く場所で希望を育てて — トップページ", url:"index.html" },
+        { words:["くろすけとももた","アニメ"], text:"くろすけとももた", url:"くろすけとももた.html" },
+        { words:["花屋","フローライツキ","flora itsuki"], text:"フローライツキ", url:"フローライツキ.html" },
+        { words:["アルバム"], text:"アルバム", url:"アルバム.html" }
+    ];
+
+    const matched = results.filter(item =>
+        item.words.some(w => w.toLowerCase().includes(word) || word.includes(w.toLowerCase()))
+    );
+
+    if(!matched.length){
+        result.textContent = "該当するページが見つかりませんでした。";
+        return;
+    }
+
+    result.innerHTML = matched.map(item =>
+        `<a href="${item.url}" style="color:#555;text-decoration:underline;text-underline-offset:3px;">${item.text}</a>`
+    ).join("　");
+}
 </script>
+
+
 
 </body>
 </html>
