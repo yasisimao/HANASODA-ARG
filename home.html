@@ -553,7 +553,8 @@ nav a:hover{
 .news-area{
     max-width:1100px;
     margin:0 auto;
-    padding:0 20px;
+    padding:0;
+    width:100%;
 }
 
 .news-heading{
@@ -578,7 +579,7 @@ nav a:hover{
 
 .news-container{
     display:grid;
-    grid-template-columns:minmax(0,1fr) 280px;
+    grid-template-columns:1fr;
     gap:45px;
 }
 
@@ -1155,7 +1156,7 @@ html{
 
 
                     <p id="characterJob">
-                        大学1年生
+                        大学2年生
                     </p>
 
 
@@ -1173,9 +1174,7 @@ html{
                         id="characterDescription"
                         class="character-description">
 
-                        クールで冷静。
-                        どこか近寄りがたい空気を纏い、
-                        必要以上に他人と関わろうとはしない。
+                        クールで冷静。どこか近寄りがたい空気を纏い、必要以上に他人と関わろうとはしない。「あの事件」をきっかけに、施設で暮らしていた過去を持つ。妃梨とは恋人同士。
 
                     </p>
 
@@ -1340,12 +1339,12 @@ const characters = [
         image:"saki.png",
         name:"茅野 咲希",
         en:"SAKI KAYANO",
-        job:"大学1年生",
+        job:"大学2年生",
         birthday:"誕生日：5月4日",
         height:"身長：158㎝",
 
         description:
-        "クールで冷静。どこか近寄りがたい空気を纏い、必要以上に他人と関わろうとはしない。",
+        "クールで冷静。どこか近寄りがたい空気を纏い、必要以上に他人と関わろうとはしない。「あの事件」をきっかけに、施設で暮らしていた過去を持つ。妃梨とは恋人同士。",
 
         likes:
         "好きなもの：甘いもの、猫、妃梨",
@@ -1358,15 +1357,15 @@ const characters = [
         image:"hiri.png",
         name:"栗栖川 妃梨",
         en:"HINA KURISUGAWA",
-        job:"大学1年生",
+        job:"大学2年生",
         birthday:"誕生日：7月24日",
         height:"身長：156㎝",
 
         description:
-        "明るく人懐っこい性格。自然と人の輪の中心にいるタイプで、少しおっちょこちょいなところもあるが、芯は強い。",
+        "明るく人懐っこく、芯の強い性格。実は裕福な栗栖川家のお嬢様だが、本人はいたって普通の感覚で過ごしている。咲希とは恋人同士。",
 
         likes:
-        "好きなもの：咲希、カフェ、ファッション",
+        "好きなもの：咲希、カフェ、おしゃれ",
 
         pink:true
     },
@@ -1374,14 +1373,14 @@ const characters = [
 
     {
         image:"hiri.png",
-        name:"イツキネコ",
-        en:"ITSUKINEKO",
+        name:"にゃお",
+        en:"NYAO",
         job:"植物の精霊",
-        birthday:"",
+        birthday:"数百歳",
         height:"",
 
         description:
-        "命芽持ちの頭に直接語りかけるように話す。一般の人からは猫の鳴き声に聞こえる。",
+        "咲希にツノの力を与えた張本人。普段は魂だけで移動しており、ツノ持ちにしか姿が見えない。猫の体を借りることで一般人にも姿が見えるようになるが、声は猫の鳴き声にしか聞こえない。「にゃお」は幼い咲希がつけた名前。",
 
         likes:"",
 
@@ -1902,6 +1901,25 @@ characterImage.addEventListener(
 
 
 /* =========================
+   キャラクター検索ジャンプ
+========================= */
+
+function goToCharacter(index){
+
+    /* 指定したキャラクターを表示 */
+    currentCharacter = -1;
+    changeCharacter(index + 1);
+
+    /* キャラクターセクションへ移動 */
+    document.getElementById("characters").scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+/* =========================
    SEARCH
 ========================= */
 
@@ -1918,15 +1936,31 @@ function searchSite(event){
     }
 
     const results = [
-        { words:["さき","咲希"], text:"茅野 咲希 — キャラクター", url:"キャラクター.html" },
-        { words:["ひな","妃梨"], text:"栗栖川 妃梨 — キャラクター", url:"キャラクター.html#hina" },
+
+        { words:["さき","咲希","かやの","茅野"], text:"茅野 咲希 — キャラクター", action:"character", index:0 },
+
+        { words:["ひな","妃梨","くりすがわ","栗栖川"], text:"栗栖川 妃梨 — キャラクター", action:"character", index:1 },
+
+        { words:["いつきねこ","イツキネコ","にゃお"], text:"にゃお — キャラクター", action:"character", index:2 },
+
+        { words:["まや","麻耶","桜井","さくらい","店長"], text:"桜井 麻耶 — キャラクター", action:"character", index:3 },
+
         { words:["sodatter","そだったー"], text:"Sodatter", url:"Sodatter.html" },
+
         { words:["ニュース","news"], text:"主要ニュース", url:"#news" },
+
         { words:["事件","あの日","5月8日"], text:"事件についての記事", url:"Hanasoda!ニュース.html" },
+
         { words:["トップページ","花咲く場所で希望を育てて","はなそだ"], text:"花咲く場所で希望を育てて — トップページ", url:"index.html" },
+
         { words:["くろすけとももた","アニメ"], text:"くろすけとももた", url:"くろすけとももた.html" },
-        { words:["花屋","フローライツキ","flora itsuki"], text:"フローライツキ", url:"フローライツキ.html" },
-        { words:["アルバム"], text:"アルバム", url:"アルバム.html" }
+
+        { words:["花屋","フローライツキ","flora itsuki"], text:"フローライツキ — ホームページ", url:"フローライツキ.html" },
+
+        { words:["アルバム"], text:"アルバム", url:"アルバム.html" },
+
+        { words:["施設","児童養護施設","白鳴学園","白鳴"], text:"児童養護施設 白鳴学園 — ホームページ", url:"siranari.html" }
+
     ];
 
     const matched = results.filter(item =>
@@ -1938,9 +1972,15 @@ function searchSite(event){
         return;
     }
 
-    result.innerHTML = matched.map(item =>
-        `<a href="${item.url}" style="color:#555;text-decoration:underline;text-underline-offset:3px;">${item.text}</a>`
-    ).join("　");
+    result.innerHTML = matched.map(item => {
+
+        if(item.action === "character"){
+            return `<a href="#characters" onclick="goToCharacter(${item.index}); return false;" style="color:#555;text-decoration:underline;text-underline-offset:3px;">${item.text}</a>`;
+        }
+
+        return `<a href="${item.url}" style="color:#555;text-decoration:underline;text-underline-offset:3px;">${item.text}</a>`;
+
+    }).join("　");
 }
 </script>
 
